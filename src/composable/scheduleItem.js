@@ -1,4 +1,4 @@
-import { computed, watch } from 'vue'
+import { computed, watch, reactive } from 'vue'
 import { useStore } from 'vuex'
 
 export const formatDate = (dt, full = false) => {
@@ -35,13 +35,31 @@ export default (props, emit, inputRefs) => {
   const openArrivalPicker = () => { inputArrival.value.showPicker() }
   const openDeparturePicker = () => { inputDeparture.value.showPicker() }
 
+  const contentUpdated = reactive({
+    to: false,
+    from: false,
+    departure: false,
+    arrival: false
+  })
+  const readyToSchedule = computed(() =>
+    Object.values(contentUpdated).every((item) => item)
+  )
+
+  watch(inputTo, (inputTo) => {
+    inputTo.addEventListener('change', (e) => { contentUpdated.to = true })
+  })
+  watch(inputFrom, (inputFrom) => {
+    inputFrom.addEventListener('change', (e) => { contentUpdated.from = true })
+  })
   watch(inputArrival, (inputArrival) => {
     inputArrival.addEventListener('change', (e) => {
+      contentUpdated.arrival = true
       spanArrival.value.innerText = formatDate(e.target.value)
     })
   })
   watch(inputDeparture, (inputDeparture) => {
     inputDeparture.addEventListener('change', (e) => {
+      contentUpdated.departure = true
       spanDeparture.value.innerText = formatDate(e.target.value)
     })
   })
@@ -66,6 +84,7 @@ export default (props, emit, inputRefs) => {
   return {
     details,
     schedule,
+    readyToSchedule,
     openArrivalPicker,
     openDeparturePicker,
     shipmentCreatingStatus

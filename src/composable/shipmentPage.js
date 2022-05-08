@@ -1,4 +1,4 @@
-import { computed, watch } from 'vue'
+import { computed, watch, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import { formatDate } from './scheduleItem'
@@ -36,13 +36,29 @@ export default (props, emit, inputRefs) => {
   const openArrivalPicker = () => { inputArrival.value.showPicker() }
   const openDeparturePicker = () => { inputDeparture.value.showPicker() }
 
+  const contentUpdated = ref(false)
+
+  watch(inputTo, (inputTo) => {
+    inputTo.addEventListener('change', () => { contentUpdated.value = true })
+  })
+  watch(inputFrom, (inputFrom) => {
+    inputFrom.addEventListener('change', () => {
+      contentUpdated.value = true
+      console.log(inputFrom.value)
+    })
+  })
+  watch(inputVolume, (inputVolume) => {
+    inputVolume.addEventListener('change', () => { contentUpdated.value = true })
+  })
   watch(inputArrival, (inputArrival) => {
     inputArrival.addEventListener('change', (e) => {
+      contentUpdated.value = true
       spanArrival.value.innerText = formatDate(e.target.value)
     })
   })
   watch(inputDeparture, (inputDeparture) => {
     inputDeparture.addEventListener('change', (e) => {
+      contentUpdated.value = true
       spanDeparture.value.innerText = formatDate(e.target.value)
     })
   })
@@ -61,6 +77,7 @@ export default (props, emit, inputRefs) => {
         }
       }
     )
+    contentUpdated.value = false
   }
 
   const deleteShipment = () => {
@@ -73,6 +90,7 @@ export default (props, emit, inputRefs) => {
     formatDate,
     updateShipment,
     deleteShipment,
+    contentUpdated,
     shipmentLoadingStatus,
     shipmentUpdatingStatus,
     shipmentDeletingStatus,

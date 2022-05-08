@@ -82,9 +82,9 @@
         </customButton>
         <customButton
           v-if="editable && !shipmentCreatingStatus"
-          @click="schedule()"
+          @click="readyToSchedule ? schedule() : null"
           class="schedule-item__section__button"
-          theme_color="green-theme">
+          :theme_color="readyToSchedule ? 'green-theme' : 'grey-theme'">
           {{ "Schedule" }}
         </customButton>
         <customButton
@@ -146,6 +146,7 @@ export default {
     const {
       details,
       schedule,
+      readyToSchedule,
       openArrivalPicker,
       openDeparturePicker,
       shipmentCreatingStatus
@@ -165,6 +166,7 @@ export default {
     return {
       details,
       schedule,
+      readyToSchedule,
       formatDate,
       inputTo,
       inputFrom,

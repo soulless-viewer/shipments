@@ -25,7 +25,7 @@
                       class="shipment__input"
                       type="text"
                       name="shipment-input--from"
-                      :value="shipment.departure_point">
+                      v-model="shipment.departure_point">
                   </div>
                 </div>
                 <div class="shipment__background__column__row">
@@ -38,16 +38,16 @@
                       class="shipment__input"
                       type="text"
                       name="shipment-input--to"
-                      :value="shipment.arrival_point">
+                      v-model="shipment.arrival_point">
                   </div>
                 </div>
                 <div class="shipment__background__column__row">
                   <div class="shipment__background__column__row__buttons">
                     <customButton
                       v-if="!shipmentUpdatingStatus"
-                      @click="updateShipment()"
+                      @click="contentUpdated ? updateShipment() : null"
                       class="shipment__background__column__row__button"
-                      theme_color="green-theme">
+                      :theme_color="contentUpdated ? 'green-theme' : 'grey-theme'">
                       {{ "Save" }}
                     </customButton>
                     <customButton
@@ -115,7 +115,7 @@
                       class="shipment__input"
                       type="text"
                       name="shipment-input--volume"
-                      :value="shipment.cargo_volume">
+                      v-model="shipment.cargo_volume">
                   </div>
                 </div>
                 <div class="shipment__background__column__row">
@@ -184,6 +184,7 @@ export default {
       formatDate,
       updateShipment,
       deleteShipment,
+      contentUpdated,
       shipmentLoadingStatus,
       shipmentUpdatingStatus,
       shipmentDeletingStatus,
@@ -208,6 +209,7 @@ export default {
       formatDate,
       updateShipment,
       deleteShipment,
+      contentUpdated,
       shipmentLoadingStatus,
       shipmentUpdatingStatus,
       shipmentDeletingStatus,
