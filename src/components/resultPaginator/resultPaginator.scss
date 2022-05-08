@@ -1,0 +1,35 @@
+.result-paginator__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.result-paginator {
+  // width: 60%;
+  padding: 15px;
+}
+
+.result-paginator__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-paginator__list__item {
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #666;
+  text-align: center;
+  background: transparent;
+  border: 1px solid #E5E5E5;
+  margin: 0 8px;
+
+  &:hover {
+    background: #E5E5E5;
+  }
+}
+
+.result-paginator__list__item--active {
+  background: #E5E5E5;
+}

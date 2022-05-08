@@ -1,0 +1,5 @@
+export { default as iconVolume } from './iconVolume.vue'
+export { default as iconArrival } from './iconArrival.vue'
+export { default as iconDeparture } from './iconDeparture.vue'
+export { default as iconDatetimeArrival } from './iconDatetimeArrival.vue'
+export { default as iconDatetimeDeparture } from './iconDatetimeDeparture.vue'

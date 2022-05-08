@@ -1,0 +1,119 @@
+.schedule-item__wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.schedule-item {
+  width: 80vw;
+  // min-width: 750px;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #E5E5E5;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.05);
+}
+
+.schedule-item__section {
+  height: 100%;
+  padding: 15px;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid rgb(220, 220, 220);
+  &:first-child {
+    border-left: none;
+  }
+  &:last-child {
+    padding: 0;
+  }
+}
+
+.schedule-item__section__text {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.schedule-item__section__text__label {
+  margin-bottom: 3px;
+  color: rgb(180, 171, 171);
+  font-size: 12px;
+}
+
+.schedule-item__section__text__input {
+  border: 0;
+  padding: 0;
+  font-size: 18px;
+  width: 100%;
+  max-width: 140px;
+  text-overflow: ellipsis;
+  border-radius: initial;
+  outline: none;
+  appearance: none;
+}
+
+.schedule-item__section__text__input--datetime {
+  border: 0;
+  width: 0;
+  height: 0;
+}
+
+.schedule-item__section__text__value {
+  font-size: 18px;
+  text-overflow: ellipsis;
+  outline: none;
+  appearance: none;
+  max-width: 140px;
+}
+
+.schedule-item__section__text__value--datetime {
+  font-size: 16px;
+  min-height: 18px;
+  outline: none;
+  appearance: none;
+  max-width: 140px;
+}
+
+.schedule-item__section__icon {
+  padding: 5px;
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.schedule-item__section__icon--from {
+
+}
+
+.schedule-item__section__icon--to {
+
+}
+
+.schedule-item__section__icon--datetime-from {
+
+}
+
+.schedule-item__section__icon--datetime-to {
+
+}
+
+.schedule-item__section__icon--volume {
+
+}
+
+.schedule-item__section__button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

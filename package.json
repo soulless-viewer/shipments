@@ -1,0 +1,48 @@
+{
+  "name": "shipments",
+  "version": "0.1.0",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test": "jest",
+    "lint": "vue-cli-service lint --format table",
+    "lint:fix": "eslint --ext .vue ./ --fix"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2",
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-unit-jest": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-standard": "^6.1.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.4",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.0.5",
+    "postcss": "^8.4.12",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.49.11",
+    "sass-loader": "^10",
+    "style-loader": "^2",
+    "vue-loader": "^17.0.0",
+    "webpack": "^5.71.0"
+  }
+}
