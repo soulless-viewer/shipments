@@ -4,8 +4,7 @@
 }
 
 .result-paginator {
-  // width: 60%;
-  padding: 15px;
+  padding: 0.938rem;
 }
 
 .result-paginator__list {
@@ -14,16 +13,16 @@
 }
 
 .result-paginator__list__item {
-  width: 30px;
-  height: 30px;
-  line-height: 28px;
+  width: 1.875rem;
+  height: 1.875rem;
+  line-height: 1.75rem;
   border-radius: 50%;
-  font-size: 15px;
+  font-size: 0.938rem;
   color: #666;
   text-align: center;
   background: transparent;
   border: 1px solid #E5E5E5;
-  margin: 0 8px;
+  margin: 0 0.5rem;
 
   &:hover {
     background: #E5E5E5;

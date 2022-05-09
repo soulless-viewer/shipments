@@ -1,10 +1,11 @@
 .button {
-  padding: 11px 100px;
+  padding: 0.688rem;
   border-radius: 5px;
 }
 
 .green-theme {
   background: #31AE54;
+
   &:hover {
     background: #888;
   }
@@ -12,6 +13,7 @@
 
 .grey-theme {
   background: #9E9E9E;
+
   &:hover {
     background: #888;
   }
@@ -19,6 +21,7 @@
 
 .red-theme {
   background-color: #F32424;
+
   &:hover {
     background: #888;
   }
@@ -27,5 +30,4 @@
 .button__text {
   color: #fff;
   font-weight: 700;
-  font-size: 16px;
 }

@@ -1,14 +1,20 @@
-.main-wrapper {
-
-}
+@import '../../media.scss';
 
 .main__hr {
   width: 80vw;
   border: 1px solid #E5E5E5;
+
+  @include tablet {
+    width: 90vw;
+  }
+
+  @include mobile {
+    width: 97vw;
+  }
 }
 
 .main__spinner {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 4.375rem;
 }

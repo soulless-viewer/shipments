@@ -1,33 +1,21 @@
-// .page-wrapper-wrapper {
-//   overflow-y: scroll;
-//
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-// }
-
 .page-wrapper__header {
   width: 100%;
   position: fixed;
   top: 0;
-  height: 70px;
+  height: 4.375rem;
   overflow: hidden;
   background-color: #bbb;
 }
 
 .page-wrapper__header h2 {
   color: #fff;
-  padding: 0 20px;
+  padding: 0 1.25rem;
 }
 
 .page-wrapper__content__wrapper {
-  padding-top: 70px;
+  padding-top: 4.375rem;
 }
 
 .page-wrapper__content {
-  padding: 20px 0;
-}
-
-.page-wrapper__footer {
-
+  padding: 1.25rem 0;
 }
