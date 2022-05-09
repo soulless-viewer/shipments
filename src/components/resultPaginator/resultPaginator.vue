@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import resultPaginator from '../../composable/resultPaginator'
+import resultPaginator from '../composables/resultPaginator'
 
 export default {
   name: 'resultPaginator',

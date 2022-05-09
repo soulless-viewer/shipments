@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import mainPage from '../../composable/mainPage'
+import mainPage from '../../components/composables/mainPage'
 import { customSpinner } from '../../components/customSpinner'
 import { pageWrapper } from '../../components/pageWrapper'
 import { scheduleItem } from '../../components/scheduleItem'

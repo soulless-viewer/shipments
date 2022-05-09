@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import scheduleItem, { formatDate } from '../../composable/scheduleItem'
+import scheduleItem, { formatDate } from '../composables/scheduleItem'
 import { userIcon } from '../../icons'
 import { customSpinner } from '../customSpinner'
 import { customButton } from '../customButton'

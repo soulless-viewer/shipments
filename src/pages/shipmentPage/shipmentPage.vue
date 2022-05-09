@@ -159,7 +159,7 @@ import { ref } from 'vue'
 import { userIcon } from '../../icons'
 import { customButton } from '../../components/customButton'
 import { customSpinner } from '../../components/customSpinner'
-import shipmentPage from '../../composable/shipmentPage'
+import shipmentPage from '../../components/composables/shipmentPage'
 import { pageWrapper } from '../../components/pageWrapper'
 
 export default {

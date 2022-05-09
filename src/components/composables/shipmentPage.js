@@ -44,7 +44,6 @@ export default (props, emit, inputRefs) => {
   watch(inputFrom, (inputFrom) => {
     inputFrom.addEventListener('change', () => {
       contentUpdated.value = true
-      console.log(inputFrom.value)
     })
   })
   watch(inputVolume, (inputVolume) => {

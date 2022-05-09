@@ -79,6 +79,7 @@ export default (props, emit, inputRefs) => {
     inputFrom.value.value = ''
     spanArrival.value.innerText = ''
     spanDeparture.value.innerText = ''
+    contentUpdated.to = false
   }
 
   return {
