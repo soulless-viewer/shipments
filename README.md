@@ -14,10 +14,10 @@ $ npm install
 
 ## Usage
 
-Run project with the following command:
+Run project with the following command **_(you should specify the URL of your backend app)_**:
 
 ```bash
-$ npm run serve
+$ VUE_APP_SERVER_URL=http://127.0.0.1:8888 npm run serve
 ```
 
 Now you can open your browser at [127.0.0.1:8080](http://127.0.0.1:8080/shipments/demo/)
@@ -61,6 +61,25 @@ Nothing really special, but anyway I will show)
 ```bash
 $ npm run test:unit
 ```
+
+## Known issues
+
+### Datetime picker browser support
+
+**Shipments** project uses native browser datetime picker.
+Due to the fact that most browsers still don't implement the functionality for programmatic activation of the picker, at the moment the project will fully work only in the following browsers:
+
+- Chrome 99+ (as well as Chrome-based: Chromium, Brave, etc.)
+- Edge 99+
+- Opera 85+
+- WebView Android 99+
+- Chrome Android 99+
+- Safari _(works, but not quite as expected)_
+
+**This issue will be fixed in future releases by switching to custom VueJS datetime picker.**
+
+Links:
+- [Browser compatibility for `.showPicker()`](https://pr15591.content.dev.mdn.mozit.cloud/en-US/docs/Web/API/HTMLInputElement/showPicker#browser_compatibility)
 
 ## Contributing
 
