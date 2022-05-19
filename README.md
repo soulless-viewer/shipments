@@ -62,6 +62,25 @@ Nothing really special, but anyway I will show)
 $ npm run test:unit
 ```
 
+## Known issues
+
+### Datatime picker browser support
+
+**Shipments** project uses native browser datetime picker.
+Due to the fact that most browsers still don't implement the functionality for programmatic activation of the picker, at the moment the project will fully work only in the following browsers:
+
+- Chrome 99+ (as well as Chrome-based: Chromium, Brave, etc.)
+- Edge 99+
+- Opera 85+
+- WebView Android 99+
+- Chrome Android 99+
+- Safari _(works, but not quite as expected)_
+
+**This issue will be fixed in future releases by switching to custom VueJS datatime picker.**
+
+Links:
+- [Browser compatibility for `.showPicker()`](https://pr15591.content.dev.mdn.mozit.cloud/en-US/docs/Web/API/HTMLInputElement/showPicker#browser_compatibility)
+
 ## Contributing
 
 1.  Fork it.
