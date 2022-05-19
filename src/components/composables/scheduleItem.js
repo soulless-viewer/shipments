@@ -29,11 +29,13 @@ export default (props, emit, inputRefs) => {
     spanArrival,
     inputArrival,
     spanDeparture,
-    inputDeparture
+    inputDeparture,
+    inputArrivalModel,
+    inputDepartureModel
   } = inputRefs
 
-  const openArrivalPicker = () => { inputArrival.value.showPicker() }
-  const openDeparturePicker = () => { inputDeparture.value.showPicker() }
+  const openArrivalPicker = () => { inputArrival.value.openMenu() }
+  const openDeparturePicker = () => { inputDeparture.value.openMenu() }
 
   const contentUpdated = reactive({
     to: false,
@@ -51,17 +53,13 @@ export default (props, emit, inputRefs) => {
   watch(inputFrom, (inputFrom) => {
     inputFrom.addEventListener('change', (e) => { contentUpdated.from = true })
   })
-  watch(inputArrival, (inputArrival) => {
-    inputArrival.addEventListener('change', (e) => {
-      contentUpdated.arrival = true
-      spanArrival.value.innerText = formatDate(e.target.value)
-    })
+  watch(inputArrivalModel, (inputArrivalModel) => {
+    contentUpdated.arrival = true
+    spanArrival.value.innerText = formatDate(inputArrivalModel)
   })
-  watch(inputDeparture, (inputDeparture) => {
-    inputDeparture.addEventListener('change', (e) => {
-      contentUpdated.departure = true
-      spanDeparture.value.innerText = formatDate(e.target.value)
-    })
+  watch(inputDepartureModel, (inputDepartureModel) => {
+    contentUpdated.departure = true
+    spanDeparture.value.innerText = formatDate(inputDepartureModel)
   })
 
   const schedule = () => {
@@ -70,9 +68,9 @@ export default (props, emit, inputRefs) => {
       'schedule',
       {
         arrival_point: inputTo.value.value,
-        arrival_dt: inputArrival.value.value,
+        arrival_dt: inputArrivalModel.value,
         departure_point: inputFrom.value.value,
-        departure_dt: inputDeparture.value.value
+        departure_dt: inputDepartureModel.value
       }
     )
     inputTo.value.value = ''
@@ -80,6 +78,9 @@ export default (props, emit, inputRefs) => {
     spanArrival.value.innerText = ''
     spanDeparture.value.innerText = ''
     contentUpdated.to = false
+    contentUpdated.from = false
+    contentUpdated.arrival = false
+    contentUpdated.departure = false
   }
 
   return {

@@ -5,12 +5,10 @@ export default (props, emit) => {
   const isActive = computed(() => (i) => currentDynamic.value === i)
 
   const moveLeft = () => {
-    if (currentDynamic.value > 1) currentDynamic.value--
-    emit('changePage', currentDynamic.value)
+    if (currentDynamic.value > 1) moveTo(currentDynamic.value - 1)
   }
   const moveRight = () => {
-    if (currentDynamic.value !== props.count) currentDynamic.value++
-    emit('changePage', currentDynamic.value)
+    if (currentDynamic.value !== Math.ceil(props.count / props.perPage)) moveTo(currentDynamic.value + 1)
   }
   const moveTo = (idx) => {
     currentDynamic.value = idx

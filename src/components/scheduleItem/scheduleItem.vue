@@ -36,12 +36,14 @@
 
       <div class="schedule-item__section">
         <div class="schedule-item__section__text">
-          <span class="schedule-item__section__text__label">Departure</span>
-          <input
+          <span id="departureInputSpan" class="schedule-item__section__text__label">Departure</span>
+          <Datepicker
             v-if="editable"
-            class="schedule-item__section__text__input--datetime"
             ref="inputDeparture"
-            type="datetime-local"
+            v-model="inputDepartureModel"
+            :hideInputIcon="true"
+            utc
+            inputClassName="schedule-item__section__text__input--datetime"
           />
           <span ref="spanDeparture"
             class="schedule-item__section__text__value--datetime"
@@ -56,11 +58,13 @@
       <div class="schedule-item__section">
         <div class="schedule-item__section__text">
           <span class="schedule-item__section__text__label">Arrival</span>
-          <input
+          <Datepicker
             v-if="editable"
-            class="schedule-item__section__text__input--datetime"
             ref="inputArrival"
-            type="datetime-local"
+            v-model="inputArrivalModel"
+            :hideInputIcon="true"
+            utc
+            inputClassName="schedule-item__section__text__input--datetime"
           />
           <span ref="spanArrival"
             class="schedule-item__section__text__value--datetime"
@@ -100,9 +104,11 @@
 
 <script>
 import scheduleItem, { formatDate } from '../composables/scheduleItem'
-import { userIcon } from '../../icons'
+import Datepicker from '@vuepic/vue-datepicker'
+import './datetimePicker.css'
 import { customSpinner } from '../customSpinner'
 import { customButton } from '../customButton'
+import { userIcon } from '../../icons'
 import { ref } from 'vue'
 
 export default {
@@ -110,6 +116,7 @@ export default {
   components: {
     customButton,
     customSpinner,
+    Datepicker,
     userIcon
   },
   emits: ['schedule', 'details'],
@@ -143,6 +150,9 @@ export default {
     const spanDeparture = ref(null)
     const inputDeparture = ref(null)
 
+    const inputArrivalModel = ref()
+    const inputDepartureModel = ref()
+
     const {
       details,
       schedule,
@@ -159,7 +169,9 @@ export default {
         spanArrival,
         inputArrival,
         spanDeparture,
-        inputDeparture
+        inputDeparture,
+        inputArrivalModel,
+        inputDepartureModel
       }
     )
 
@@ -174,6 +186,8 @@ export default {
       inputArrival,
       spanDeparture,
       inputDeparture,
+      inputArrivalModel,
+      inputDepartureModel,
       openArrivalPicker,
       openDeparturePicker,
       shipmentCreatingStatus

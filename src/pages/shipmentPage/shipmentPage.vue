@@ -66,11 +66,13 @@
                     <label for="shipment-input--departure">Departure</label>
                   </div>
                   <div class="shipment__background__column__row__input">
-                    <input
-                      class="shipment__input--datetime"
+                    <Datepicker
+                      utc
                       ref="inputDeparture"
-                      type="datetime-local"
-                      :value="shipment.departure_dt.slice(0, -1)"
+                      v-model="inputDepartureModel"
+                      :value="shipment.departure_dt"
+                      :hideInputIcon="true"
+                      inputClassName="shipment__input--datetime"
                     />
                     <div class="shipment__input__span">
                       <span ref="spanDeparture">
@@ -88,11 +90,13 @@
                     <label for="shipment-input--arrival">Arrival</label>
                   </div>
                   <div class="shipment__background__column__row__input">
-                    <input
-                      class="shipment__input--datetime"
+                    <Datepicker
+                      utc
                       ref="inputArrival"
-                      type="datetime-local"
-                      :value="shipment.arrival_dt.slice(0, -1)"
+                      v-model="inputArrivalModel"
+                      :value="shipment.arrival_dt"
+                      :hideInputIcon="true"
+                      inputClassName="shipment__input--datetime"
                     />
                     <div class="shipment__input__span">
                       <span ref="spanArrival">
@@ -157,15 +161,18 @@
 <script>
 import { ref } from 'vue'
 import { userIcon } from '../../icons'
+import Datepicker from '@vuepic/vue-datepicker'
+import './datetimePicker.css'
+import { pageWrapper } from '../../components/pageWrapper'
 import { customButton } from '../../components/customButton'
 import { customSpinner } from '../../components/customSpinner'
 import shipmentPage from '../../components/composables/shipmentPage'
-import { pageWrapper } from '../../components/pageWrapper'
 
 export default {
   name: 'shipmentPage',
   components: {
     userIcon,
+    Datepicker,
     customButton,
     customSpinner,
     pageWrapper
@@ -178,6 +185,9 @@ export default {
     const inputArrival = ref(null)
     const spanDeparture = ref(null)
     const inputDeparture = ref(null)
+
+    const inputArrivalModel = ref()
+    const inputDepartureModel = ref()
 
     const {
       shipment,
@@ -200,7 +210,9 @@ export default {
         spanArrival,
         inputArrival,
         spanDeparture,
-        inputDeparture
+        inputDeparture,
+        inputArrivalModel,
+        inputDepartureModel
       }
     )
 
@@ -221,7 +233,9 @@ export default {
       spanArrival,
       inputArrival,
       spanDeparture,
-      inputDeparture
+      inputDeparture,
+      inputArrivalModel,
+      inputDepartureModel
     }
   }
 }

@@ -30,11 +30,13 @@ export default (props, emit, inputRefs) => {
     spanArrival,
     inputArrival,
     spanDeparture,
-    inputDeparture
+    inputDeparture,
+    inputArrivalModel,
+    inputDepartureModel
   } = inputRefs
 
-  const openArrivalPicker = () => { inputArrival.value.showPicker() }
-  const openDeparturePicker = () => { inputDeparture.value.showPicker() }
+  const openArrivalPicker = () => { inputArrival.value.openMenu() }
+  const openDeparturePicker = () => { inputDeparture.value.openMenu() }
 
   const contentUpdated = ref(false)
 
@@ -49,17 +51,13 @@ export default (props, emit, inputRefs) => {
   watch(inputVolume, (inputVolume) => {
     inputVolume.addEventListener('change', () => { contentUpdated.value = true })
   })
-  watch(inputArrival, (inputArrival) => {
-    inputArrival.addEventListener('change', (e) => {
-      contentUpdated.value = true
-      spanArrival.value.innerText = formatDate(e.target.value)
-    })
+  watch(inputArrivalModel, (inputArrivalModel) => {
+    contentUpdated.value = true
+    spanArrival.value.innerText = formatDate(inputArrivalModel, true)
   })
-  watch(inputDeparture, (inputDeparture) => {
-    inputDeparture.addEventListener('change', (e) => {
-      contentUpdated.value = true
-      spanDeparture.value.innerText = formatDate(e.target.value)
-    })
+  watch(inputDepartureModel, (inputDepartureModel) => {
+    contentUpdated.value = true
+    spanDeparture.value.innerText = formatDate(inputDepartureModel, true)
   })
 
   const updateShipment = () => {
@@ -69,10 +67,14 @@ export default (props, emit, inputRefs) => {
         id: route.params.id,
         data: {
           arrival_point: inputTo.value.value,
-          arrival_dt: inputArrival.value.value,
+          arrival_dt: inputArrivalModel.value === undefined
+            ? shipment.value.arrival_dt
+            : inputArrivalModel.value,
           cargo_volume: inputVolume.value.value,
           departure_point: inputFrom.value.value,
-          departure_dt: inputDeparture.value.value
+          departure_dt: inputDepartureModel.value === undefined
+            ? shipment.value.departure_dt
+            : inputDepartureModel.value
         }
       }
     )
