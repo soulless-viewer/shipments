@@ -14,10 +14,10 @@ $ npm install
 
 ## Usage
 
-Run project with the following command:
+Run project with the following command **_(you should specify the URL of your backend app)_**:
 
 ```bash
-$ npm run serve
+$ VUE_APP_SERVER_URL=http://127.0.0.1:8888 npm run serve
 ```
 
 Now you can open your browser at [127.0.0.1:8080](http://127.0.0.1:8080/shipments/demo/)
